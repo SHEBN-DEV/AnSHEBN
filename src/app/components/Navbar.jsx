@@ -65,7 +65,7 @@ const Navbar = () => {
         <ul className="flex space-x-6 text-sm">
           <li><a href="#" className="hover:text-pink-400">Home</a></li>
           <li><a href="/profileFriends" className="hover:text-pink-400">Profiles</a></li>
-          <li><a href="#" className="hover:text-pink-400">Projects</a></li>
+          <li><a href="/Projects" className="hover:text-pink-400">Projects</a></li>
           <li><a href="#" className="hover:text-pink-400">Forum</a></li>
           <li><a href="#" className="bg-pink-700 text-white px-3 py-1 rounded hover:bg-pink-800 transition">Contact us</a></li>
         </ul>

@@ -45,7 +45,10 @@ const Sidebar = ()  => {
                     </li>
                     <li className={`text-lg flex items-center gap-2 cursor-pointer
                         ${active === 'projects' ? 'text-[#FF29D7] font-semibold' : 'text-white'}`}
-                        onClick={() => setActive('projects')}>
+                        onClick={() => {
+                            setActive('projects');
+                            router.push('/Projects');
+                            }}>
                             <img className="w-6 h-6" src={active === 'projects' ? '/images/profile/Layer-1-pink.png' : '/images/profile/artboard-35-white.png'} alt="Projects" />
                         Projects
                     </li>
