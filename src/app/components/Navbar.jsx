@@ -1,7 +1,6 @@
 "use client"
 
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { supabase } from "../SupabaseClient";
 import { useRouter } from "next/navigation";
@@ -37,39 +36,52 @@ const Navbar = () => {
     fetchUserAndProfile();
   }, []);
 
-  const handlelogout = async () => {
-    await supabase.auth.signOut();
-    setUser(null);
-    setProfile(null);
-  };
-
   const handleOptionClick = async (value) => {
     if (value === "logout") {
       const { error } = await supabase.auth.signOut();
       if (error) {
         console.error("Error al cerrar sesión:", error.message);
       } else {
+        setUser(null);
+        setProfile(null);
         // Redirige o actualiza el estado
         router.push("/login");
       }
     }
   };
 
+  const navLinks = [
+    { label: "Home", href: "/Home" },
+    { label: "Profiles", href: "/profileFriends" },
+    { label: "Projects", href: "/Projects" },
+    { label: "Apply", href: "#" },
+    { label: "Forum", href: "#" },
+    { label: "Contact us", href: "#", special: true },
+  ];
+
   return (
     <nav className="w-full bg-[#191617] text-white py-4 px-8 flex items-center justify-between font-[var(--font-montserrat)]">
-      <div className="flex items-center space-x-8">
-        <div className="flex items-center space-x-2">
-          <Image src="/images/shared/logo.png" alt="Logo shebn" width={40} height={40} />
-          <span className="text-pink-500 font-bold text-lg tracking-widest"></span>
-        </div>
-        <ul className="flex space-x-6 text-sm">
-          <li><a href="#" className="hover:text-pink-400">Home</a></li>
-          <li><a href="/profileFriends" className="hover:text-pink-400">Profiles</a></li>
-          <li><a href="/Projects" className="hover:text-pink-400">Projects</a></li>
-          <li><a href="#" className="hover:text-pink-400">Forum</a></li>
-          <li><a href="#" className="bg-pink-700 text-white px-3 py-1 rounded hover:bg-pink-800 transition">Contact us</a></li>
-        </ul>
+      
+      <div className="flex items-center gap-8 w-full sm:w-auto justify-between sm:justify-start">
+        <img 
+          src="/images/home/logo 1.png" 
+          alt="SBN Logo" 
+          className="h-12 w-auto select-none" 
+          draggable="false"
+        />
+        <nav className="hidden sm:flex gap-4 sm:gap-8 text-sm sm:text-base font-light flex-wrap">
+          {navLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              className={`px-2 py-1 rounded transition hover:bg-[#FF29D7]/70 hover:text-white ${link.special ? "bg-[#FF29D7]/70 text-white font-medium transition hover:bg-[#FF29D7]/90 hover:text-white" : ""}`}
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
       </div>
+      
       <div className="flex space-x-4 items-center">
         {user && profile ? (
           <>
@@ -85,10 +97,10 @@ const Navbar = () => {
         ) : (
           <>
             <Link href="/login">
-              <button className="border border-white px-6 py-2 rounded-[25px] hover:bg-white hover:text-black transition font-bold">LOG IN</button>
+              <button className="px-4 sm:px-6 py-2 border border-white rounded-full font-semibold hover:bg-white hover:text-black transition text-xs sm:text-base">LOG IN</button>
             </Link>
             <Link  href="/signup">
-              <button className="border border-white px-6 py-2 rounded-[25px] hover:bg-pink-700 hover:text-white transition font-bold">SIGN UP</button>
+              <button className="px-4 sm:px-6 py-2 border border-white rounded-full font-semibold hover:bg-white hover:text-black transition text-xs sm:text-base">SIGN UP</button>
             </Link>
           </>
         )}

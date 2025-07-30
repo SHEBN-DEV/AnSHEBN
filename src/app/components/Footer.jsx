@@ -1,27 +1,41 @@
-import Image from "next/image";
-import { FaInstagram, FaFacebookF, FaXTwitter, FaWhatsapp } from "react-icons/fa6";
+import React from "react";
+import {
+  FaInstagram,
+  FaFacebookF,
+  FaXTwitter,
+  FaWhatsapp,
+} from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-[#ff33cc] flex flex-col sm:flex-row items-center justify-between px-8 py-8">
-      <div className="mb-6 sm:mb-0">
-        <Image src="/images/shared/logo_black.png" alt="Logo COHEX" width={160} height={80} />
-      </div>
-      <div className="flex flex-col sm:flex-row items-center gap-8 w-full sm:w-auto justify-between">
-        <ul className="flex flex-col gap-2 text-white font-bold text-lg items-center sm:items-start">
-          <li><a href="#" className="hover:underline">Services</a></li>
-          <li><a href="#" className="hover:underline">About</a></li>
-          <li><a href="#" className="hover:underline">Contact us</a></li>
-        </ul>
-        <div className="flex gap-6 text-white text-2xl mt-4 sm:mt-0">
-          <a href="#" aria-label="Instagram"><FaInstagram /></a>
-          <a href="#" aria-label="Facebook"><FaFacebookF /></a>
-          <a href="#" aria-label="X"><FaXTwitter /></a>
-          <a href="#" aria-label="WhatsApp"><FaWhatsapp /></a>
+    <footer className="bg-[#FF29D7] text-white py-6 px-6 sm:px-10">
+      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+        
+        {/* Enlaces de navegación */}
+        <div className="flex flex-col sm:flex-row sm:gap-6 text-sm sm:text-base font-semibold text-center sm:text-left">
+          <a href="#services" className="hover:underline">Services</a>
+          <a href="#about" className="hover:underline">About</a>
+          <a href="#contact" className="hover:underline">Contact us</a>
+        </div>
+
+        {/* Íconos de redes sociales */}
+        <div className="flex justify-center sm:justify-end gap-6 text-xl sm:text-2xl">
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+            <FaInstagram className="hover:text-black transition" />
+          </a>
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+            <FaFacebookF className="hover:text-black transition" />
+          </a>
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+            <FaXTwitter className="hover:text-black transition" />
+          </a>
+          <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">
+            <FaWhatsapp className="hover:text-black transition" />
+          </a>
         </div>
       </div>
     </footer>
   );
 };
 
-export default Footer; 
+export default Footer;
