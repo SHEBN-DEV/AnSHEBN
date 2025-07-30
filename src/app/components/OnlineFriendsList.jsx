@@ -4,11 +4,11 @@ import React from "react";
 import { useState } from "react";
 
 const friends = [
-    { name: 'Danielabeyo', role: 'Developer', image: '/images/profile/fondo-inferior.png' },
-    { name: 'Daneris12', role: 'UX Designer', image: '/images/profile/fondo-inferior.png' },
-    { name: 'Catalina23', role: 'Developer Junior', image: '/images/profile/fondo-inferior.png' },
-    { name: 'TakaskiJulia', role: 'Comunnication', image: '/images/profile/fondo-inferior.png' },
-    { name: 'Danielabeyo', role: 'Developer', image: '/images/profile/fondo-inferior.png' },
+    { name: 'Danielabeyo', role: 'Developer', image: '/images/profile/woman.jpg' },
+    { name: 'Daneris12', role: 'UX Designer', image: '/images/profile/woman.jpg' },
+    { name: 'Catalina23', role: 'Developer Junior', image: '/images/profile/woman.jpg' },
+    { name: 'TakaskiJulia', role: 'Comunnication', image: '/images/profile/woman.jpg' },
+    { name: 'Danielabeyo', role: 'Developer', image: '/images/profile/woman.jpg' },
 ];
 
 const OnlineFriendsList =() => {

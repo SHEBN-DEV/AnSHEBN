@@ -5,7 +5,7 @@ import React from 'react';
 const cards = [
   {
     category: 'Education',
-    image: '/images/profile/fondo-inferior.png',
+    image: '/images/projects/equipo.jpg',
     title: 'First all-female team leading Blockchain in Rio',
     funded: 15000,
     goal: 25000,
@@ -13,7 +13,7 @@ const cards = [
   },
   {
     category: 'Entrepreneurship',
-    image: '/images/profile/fondo-inferior.png',
+    image: '/images/projects/equipo.jpg',
     title: 'Women Shining in UX with Blockchain',
     funded: 18750,
     goal: 25000,
@@ -21,7 +21,7 @@ const cards = [
   },
   {
     category: 'Scholarships and Challenges',
-    image: '/images/profile/fondo-inferior.png',
+    image: '/images/projects/equipo.jpg',
     title: 'Fundraising pitches for women',
     funded: 6750,
     goal: 15000,

@@ -26,7 +26,7 @@ const MyProfile = () => {
                 <div className="md:relative flex items-start bottom-9 left-0">
                     <div className="w-1/2 flex items-center pl-4">
                         <div className="md:relative w-1/2 md:w-1/4">
-                            <img className="w-15 h-15 md:w-30 md:h-30 rounded-full border-4 border-[#1a1718] " src="/images/profile/fondo-inferior.png" alt="Photo" />
+                            <img className="w-15 h-15 md:w-30 md:h-30 rounded-full border-4 border-[#1a1718] " src="/images/profile/woman.jpg" alt="Photo" />
                             <div className="w-3 h-3 md:w-5 md:h-5 bg-green-500 rounded-full md:absolute bottom-162 left-8 md:bottom-0 md:left-4"></div>
                         </div>
                         <div>

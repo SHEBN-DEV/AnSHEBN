@@ -13,7 +13,7 @@ const Sidebar = ()  => {
     const [isOpen, setIsOpen] = useState(false);
 
     const friends = [
-        { nameFull: 'Maria Torre', name: 'Mariatorre5', image: '/images/profile/fondo-inferior.png' },
+        { nameFull: 'Maria Torre', name: 'Mariatorre5', image: '/images/profile/woman.jpg' },
     ];
 
     

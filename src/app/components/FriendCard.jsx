@@ -5,12 +5,12 @@ import React from "react";
 const FriendCard = () => {
 
     const friend = [
-        { name: 'Danielabeyo', role: 'Developer', status: 'Open to door', image: '/images/profile/fondo-inferior.png' },
-        { name: 'SelenaLo', role: 'Marketing', status: 'CMO VueWallet', image: '/images/profile/fondo-inferior.png' },
-        { name: 'Camila Cabello', role: 'UX Designer', status: '16 projects', image: '/images/profile/fondo-inferior.png' },
-        { name: 'Journalist1', role: 'Journalist', status: '30 contents', image: '/images/profile/fondo-inferior.png' },
-        { name: 'Danielabeyo', role: 'Developer', status: 'Open to door', image: '/images/profile/fondo-inferior.png' },
-        { name: 'SelenaLo', role: 'Marketing', status: 'CMO VueWallet', image: '/images/profile/fondo-inferior.png' },
+        { name: 'Danielabeyo', role: 'Developer', status: 'Open to door', image: '/images/profile/woman.jpg' },
+        { name: 'SelenaLo', role: 'Marketing', status: 'CMO VueWallet', image: '/images/profile/woman.jpg' },
+        { name: 'Camila Cabello', role: 'UX Designer', status: '16 projects', image: '/images/profile/woman.jpg' },
+        { name: 'Journalist1', role: 'Journalist', status: '30 contents', image: '/images/profile/woman.jpg' },
+        { name: 'Danielabeyo', role: 'Developer', status: 'Open to door', image: '/images/profile/woman.jpg' },
+        { name: 'SelenaLo', role: 'Marketing', status: 'CMO VueWallet', image: '/images/profile/woman.jpg' },
     ];
     
     return(
