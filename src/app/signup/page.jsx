@@ -17,11 +17,11 @@ const SignUp = () => {
 
     const [showToast, setShowToast] = useState(false);
     const [toastMessage, setToastMessage] = useState('');
-    const [toastType, setToastType] = useState('success'); //error
+    const [toastType, setToastType] = useState('success'); 
 
     const router = useRouter();
 
-    const onSubmit = async (data) => {
+    const handleSignUpSubmit = async (data) => {
         const {FullName, UserName, email, Password} = data;
         
         //Crear usuario en supabase con autenticacion
@@ -55,10 +55,11 @@ const SignUp = () => {
             full_name: FullName,
             user_name: UserName,
             email: email,
-            password: Password,
             },
         ]);
 
+        
+        //Verificar si se guardo el perfil
         if (profileError) {
             setToastMessage("Error saving profile:" + profileError.message);
             setToastType("error");
@@ -77,40 +78,27 @@ const SignUp = () => {
     return (
         <div className="min-h-screen w-full bg-[#1a1718] text-white flex flex-col items-center">
             
-            <form onSubmit={handleSubmit(onSubmit)} className="w-full md:w-1/2 py-12 px-6 flex flex-col gap-6 justify-center items-center">
+            <form onSubmit={handleSubmit(handleSignUpSubmit)} className="w-full md:w-1/2 py-12 px-6 flex flex-col gap-6 justify-center items-center">
                 <div className="flex flex-col gap-8 justify-center items-center text-center">
                     <p className="text-4xl font-semibold">
                         Sign Up Account
                     </p>
-                    <p>
+                    <p className='text-base'>
                         Enter your personal data to create your account.
                     </p>
                 </div>
 
-                {/*  Iniciar sesion con Google u otro 
-                <div className="flex flex-col md:flex-row gap-6 w-full justify-center items-center">
-                    <button className="border border-white rounded-3xl px-4 py-2 flex items-center">
-                        <img src="/images/pages/artboard-26.png" alt="Google" className="w-5 h-5 mr-2" />Google    
-                    </button>
-                    <button className="border border-white rounded-3xl px-4 py-2 flex items-center">
-                        <img src="/images/pages/artboard-26.png" alt="Google" className="w-5 h-5 mr-2" />Google 
-                    </button>
-                </div>
-               
-
-                <div className="flex items-center gap-4 w-full justify-center">
-                    <div className="w-1/4 border-b border-white"></div>
-                    <p>Or</p>
-                    <div className="w-1/4 border-b border-white"></div>
-                </div>
-                 */}
-
-                <div className="w-full flex flex-col md:flex-row gap-12">
-                    <InputField label="Full Name" name="FullName" register={register} rules={{ required: "Full name is required"}} error={errors.FullName} />
-                    <InputField label="User Name" name="UserName" register={register} rules={{ required: "User name is required"}} error={errors.UserName} />
+                <div className='w-full'>
+                    
+                    <div className="w-full flex flex-col md:flex-row gap-5">
+                        <InputField label="Full Name" name="FullName" register={register} rules={{ required: "Full name is required"}} error={errors.FullName} />
+                        <InputField label="User Name" name="UserName" register={register} rules={{ required: "User name is required"}} error={errors.UserName} />
+                    </div>
                 </div>
 
                 <div className="w-full flex flex-col gap-6">
+                    
+                    {/* Email */}
                     <InputField label="Email" name="email" type="email" register={register} 
                     rules={{
                         required: "Email is required",
@@ -120,10 +108,13 @@ const SignUp = () => {
                         },
                     }} 
                     error={errors.email} />
+
+                    {/* Contrasena */}
                     <PasswordField label="Password" name="Password" register={register} 
                     rules={{required: "Password is required",
                         minLength: {value: 8, message: "Minimiun 8 characters"}}}
                         error={errors.Password} />
+                    
                 </div>
 
                 <div className="w-full flex justify-end py-5 pr-8">

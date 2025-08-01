@@ -30,10 +30,40 @@ const Navbar = () => {
         if (profileData) {
           setProfile(profileData);
         }
+      } else {
+        setUser(null);
+        setProfile(null);
       }
     };
 
+    // Ejecutar inmediatamente
     fetchUserAndProfile();
+
+    // Configurar listener de autenticación
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      async (event, session) => {
+        if (event === 'SIGNED_IN' && session?.user) {
+          setUser(session.user);
+          
+          // Obtener perfil del usuario
+          const { data: profileData, error: profileError } = await supabase
+            .from("profiles")
+            .select("user_name")
+            .eq("id", session.user.id)
+            .single();
+
+          if (profileData) {
+            setProfile(profileData);
+          }
+        } else if (event === 'SIGNED_OUT') {
+          setUser(null);
+          setProfile(null);
+        }
+      }
+    );
+
+    // Limpiar subscription al desmontar
+    return () => subscription.unsubscribe();
   }, []);
 
   const handleOptionClick = async (value) => {
@@ -51,7 +81,7 @@ const Navbar = () => {
   };
 
   const navLinks = [
-    { label: "Home", href: "/Home" },
+    { label: "Home", href: "/KYC" },
     { label: "Profiles", href: "/profileFriends" },
     { label: "Projects", href: "/Projects" },
     { label: "Apply", href: "#" },
@@ -65,7 +95,7 @@ const Navbar = () => {
       <div className="flex items-center gap-8 w-full sm:w-auto justify-between sm:justify-start">
         <img 
           src="/images/home/logo 1.png" 
-          alt="SBN Logo" 
+          alt="SHEBN Logo" 
           className="h-12 w-auto select-none" 
           draggable="false"
         />

@@ -1,13 +1,15 @@
 "use client";
 
-import React from "react";
+import React, { useState } from 'react';
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form"; //verificacion de campos
-import { useState } from "react"; //Manejar estados de UI
 import { supabase } from '../SupabaseClient'; //Conexion con base de datos
 import InputField from "../components/inputField";
 import PasswordField from "../components/PasswordField";
 
+
 const Login = () => {
+    const router = useRouter();
     const {
         register,
         handleSubmit,
@@ -17,7 +19,7 @@ const Login = () => {
 
     const [loading, setLoading] = useState(false);
 
-    const onSubmit = async (data) => {
+    const handleLoginSubmit = async (data) => {
         setLoading(true);
         
         //Buscar el email asociado al userName
@@ -41,8 +43,10 @@ const Login = () => {
 
         if (loginError) {
             setError("password", { message: "Invalid password" });
+            setLoading(false);
+            return;
         } else {
-            window.location.href = "/profileFriends"; //Direccionar a la ruta protegida
+            router.push("/KYC"); //Direccionar a la ruta protegida
         }
 
         setLoading(false);
@@ -51,7 +55,7 @@ const Login = () => {
     return (
         <div className="min-h-screen flex items-center justify-center bg-[#1a1718] text-white">
             <form 
-                onSubmit={handleSubmit(onSubmit)} 
+                onSubmit={handleSubmit(handleLoginSubmit)} 
                 className="w-full md:w-1/2 py-12 px-6 flex flex-col gap-6 justify-center items-center">
               
               <div className="text-center">

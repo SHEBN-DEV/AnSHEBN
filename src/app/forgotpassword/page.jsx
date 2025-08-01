@@ -13,8 +13,9 @@ const ForgotPassword = () => {
         formState: {errors},
     } = useForm();
 
-    const onSubmit = (data) => {
-        console.log("Email Enviado", data);
+    const handleForgotPasswordSubmit = (data) => {
+        console.log(data);
+        // Aquí iría la lógica para recuperar la contraseña
     };
 
     return (
@@ -28,7 +29,7 @@ const ForgotPassword = () => {
                 <p className="text-xl font-medium">Trouble logging in</p>
                 <p className="text-base text-center">Enter your email and we’ll send you a link to get back into your account.</p>
 
-                <form onSubmit={handleSubmit(onSubmit)} className="w-full flex flex-col gap-6 justify-center items-center">
+                <form onSubmit={handleSubmit(handleForgotPasswordSubmit)} className="w-full flex flex-col gap-6 justify-center items-center">
                     <InputField label="Email" name="email" type="email" register={register}
                     rules={{
                         required: "Email is required",

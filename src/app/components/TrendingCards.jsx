@@ -1,9 +1,11 @@
-
+"use client"
 // src/components/TrendingCards.jsx
 import React from 'react';
+import { useRouter } from 'next/navigation';
 
 const cards = [
   {
+    id: 1,
     category: 'Education',
     image: '/images/projects/equipo.jpg',
     title: 'First all-female team leading Blockchain in Rio',
@@ -12,6 +14,7 @@ const cards = [
     daysLeft: 15,
   },
   {
+    id: 2,
     category: 'Entrepreneurship',
     image: '/images/projects/equipo.jpg',
     title: 'Women Shining in UX with Blockchain',
@@ -20,6 +23,7 @@ const cards = [
     daysLeft: 13,
   },
   {
+    id: 3,
     category: 'Scholarships and Challenges',
     image: '/images/projects/equipo.jpg',
     title: 'Fundraising pitches for women',
@@ -30,6 +34,12 @@ const cards = [
 ];
 
 const TrendingCards = () => {
+  const router = useRouter();
+
+  const handleCardClick = (cardId) => {
+    router.push(`/Projects/${cardId}`);
+  };
+
   return (
     <div className="flex flex-col p-6">
       
@@ -38,7 +48,11 @@ const TrendingCards = () => {
         {/* Card */}
         <div className="w-5/6 grid grid-cols-1 md:grid-cols-3 gap-6">
           {cards.map((card, index) => (
-            <div key={index} className="bg-black rounded-lg p-4">
+            <div 
+              key={index} 
+              className="bg-black rounded-lg p-4 cursor-pointer hover:bg-gray-800 transition-colors duration-200"
+              onClick={() => handleCardClick(card.id)}
+            >
               <p className="text-sm text-gray-500 font-semibold">{card.category}</p>
               <div className='flex items-center justify-center py-6 px-2'>
                 <img className='w-xs size-45 rounded-xl' src={card.image} alt={card.title} />
