@@ -46,7 +46,7 @@ const Login = () => {
             setLoading(false);
             return;
         } else {
-            router.push("/KYC"); //Direccionar a la ruta protegida
+            router.push("/profileFriends"); //Direccionar a la ruta protegida
         }
 
         setLoading(false);

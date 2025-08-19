@@ -24,11 +24,6 @@ const profileFriends = () => {
                 {/* Button */}
                 <ButtonProfile />
 
-                
-                
-
-                 
-                
             </div>
 
             {/* Bloque 3 */}

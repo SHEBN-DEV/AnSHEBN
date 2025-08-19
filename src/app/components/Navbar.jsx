@@ -81,7 +81,7 @@ const Navbar = () => {
   };
 
   const navLinks = [
-    { label: "Home", href: "/KYC" },
+    { label: "Home", href: "#" },
     { label: "Profiles", href: "/profileFriends" },
     { label: "Projects", href: "/Projects" },
     { label: "Apply", href: "#" },

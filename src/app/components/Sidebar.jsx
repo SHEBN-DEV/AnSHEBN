@@ -32,8 +32,8 @@ const Sidebar = ()  => {
                 )}
             </button>
 
-            <div className={`fixed flex flex-col justify-between items-center top-0 left-0 h-3/4 w-1/2 py-5 bg-[#1a1718] transform transition-transform duration-300 ease-in-out
-            ${isOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 md:static md:w-full md:h-5/6`}>
+            <div className={`fixed flex flex-col justify-between items-center top-0 left-0 h-3/4 w-1/2 py-5 bg-black transform transition-transform duration-300 ease-in-out
+            ${isOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 md:static md:w-full md:h-full`}>
                             
                 <ul className="list-inside flex flex-col justify-stard gap-4">
                     <li className={`text-lg flex items-center gap-2 cursor-pointer 
